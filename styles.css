@@ -1,0 +1,76 @@
+
+
+
+@font-face {
+    font-family: PressStart2P;
+    src: url(PressStart2P-Regular.ttf);
+}
+
+html { 
+    background: url(media/tulip.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: PressStart2P;
+  }
+  
+
+
+.typewriter{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    /* border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .25em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+
+.title {
+    text-align: center;
+    margin-top: 10%;
+    color: aliceblue;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+}
+
+.smlink {
+    position: relative;
+    display: inline-block;
+    margin: 50px;
+}
+.smlink .topimg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.smlink:hover .topimg {
+    display: inline;
+}
+
+.links {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+    margin-top: 10%;
+}
+
+ul {
+    padding: 0px;
+}
