@@ -71,11 +71,10 @@ img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar:
-  assets/frogart.png
+  assets/
 
 # boolean type, the global switch for TOC in posts.
 toc: true
-
 comments:
   active: # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
   # The active options are as follows:

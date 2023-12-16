@@ -1,7 +1,9 @@
 ---
 layout: post
 title: EC2 minecraft server
-date: 2023-12-16 23:10 +0100
+date: 2023-01-30 12:02 +0100
+tags: AWS programming
+categories: programming
 ---
 
 ## Running a minecraft server on an amazon EC2 instance
