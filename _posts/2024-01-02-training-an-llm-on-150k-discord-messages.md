@@ -2,6 +2,8 @@
 layout: post
 title: Training an LLM on 150K Discord messages
 date: 2024-01-02 18:07 +0100
+categories: programming
+tags: AI programming
 ---
 Over the past few months I have been fascinated by [this post](https://www.izzy.co/blogs/robo-boys.html) by Izzy Miller, where he trains an LLM on his and his friends' iMessage group chat history. In his case the idea developed from discovering iMessage used an SQLite database to store its messages locally on macs, from which he trained a model. I recommend reading it as I base a lot of this on what he did (with notable differences).
 
@@ -60,7 +62,9 @@ def resolve_realname(userid: str) -> str:
 
 ```
 now that we can resolve ID's to names, we can label messages with real names as opposed to usernames, and replace mentions of ID's with mentions of names:
+
 ![Damon's userID being resolved in a mention](/assets/img/discord-llm/damon.png)
+
 While we're at it, we can also remove links (and messages that are only links) from the dataset:
 ```python
  text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
@@ -270,15 +274,19 @@ Client.run(token)
 And when that is running, the bot can start generating messages, it quickly showed that the model that I used to train on, (`opt-125m`) is not really a good fit for larger contexts and prompts.
 
 Sometimes I'd get legible text.
+
 !["It might be"](/assets/img/discord-llm/itmightbe.png)
 
 Sometimes it would just repeat exactly what you would say to it.
+
 !["I hate linear transformation"](/assets/img/discord-llm/lineartransformation.png)
 
 Sometimes it would just...
+
 !["Timo why does it do that"](/assets/img/discord-llm/whydoesitdothat.png)
 
 Ultimately, It was pretty funny for the few hours I had it running. 
+
 !["Are you having a stroke"](/assets/img/discord-llm/stroke.png)
 
 # Closing thoughts
