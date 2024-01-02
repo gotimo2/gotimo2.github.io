@@ -12,13 +12,13 @@ With that out of the way, let's talk about my eventually successful process of ~
 To train on a Discord message history, it's a good idea to... have the history. In theory, you **could** gather those messages from the discord API while training, and generate your dataset that way, but generally speaking it's a better idea to have them locally in a database, which lets you query the messages and fine-pick what you want to leave in and out. 
 
 A few months ago I wrote a tool called [DiscordDumper](https://github.com/gotimo2/DiscordDumper) that does this job well enough. It needs bot access to the server you want to gather messages from (theoretically you **should** be able to do this with a user token and avoid needing bot access, but I had a bot where I was collecting the data from). This takes a while, because Discord will rate-limit you every few requests. When it's done, you'll end up with an SQLite database looking like this:
-!["An image of a database table filled with messages"](../assets/img/discord-llm/database.png)
+!["An image of a database table filled with messages"](/assets/img/discord-llm/database.png)
 
 ## Formatting the data
 In principle, using a text completion model should be able to use the last message of a chat history to a generate another chat message. sort of like this: 
-!["The worst feeling ever is when you're in a bus and someone in pushing on your chair from behind"](../assets/img/discord-llm/message1.png)
+!["The worst feeling ever is when you're in a bus and someone in pushing on your chair from behind"](/assets/img/discord-llm/message1.png)
 being completed with :
-!["I'm sorry my legs are just too long"](../assets/img/discord-llm/message2.png)
+!["I'm sorry my legs are just too long"](/assets/img/discord-llm/message2.png)
 But I'd like to be able to give the bot a bit more depth than generating message after message. Strings of individual messages is not that much data, and it likely doesn't capture the context of the chat all that well. [Izzy](https://www.izzy.co/blogs/robo-boys.html) talks about how the [Stanford alpaca project](https://github.com/tatsu-lab/stanford_alpaca/issues/81#issue-1629958960) used a formatting style that led to good results, so we can do something similar.
 
 So, we need to work our dataset into prompt/input/response pairs, like this:
@@ -60,7 +60,7 @@ def resolve_realname(userid: str) -> str:
 
 ```
 now that we can resolve ID's to names, we can label messages with real names as opposed to usernames, and replace mentions of ID's with mentions of names:
-![Damon's userID being resolved in a mention](../assets/img/discord-llm/damon.png)
+![Damon's userID being resolved in a mention](/assets/img/discord-llm/damon.png)
 While we're at it, we can also remove links (and messages that are only links) from the dataset:
 ```python
  text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
@@ -273,13 +273,13 @@ Sometimes I'd get legible text.
 !["It might be"](/assets/img/discord-llm/itmightbe.png)
 
 Sometimes it would just repeat exactly what you would say to it.
-!["I hate linear transformation"](../assets/img/discord-llm/lineartransformation.png)
+!["I hate linear transformation"](/assets/img/discord-llm/lineartransformation.png)
 
 Sometimes it would just...
-!["Timo why does it do that"](../assets/img/discord-llm/whydoesitdothat.png)
+!["Timo why does it do that"](/assets/img/discord-llm/whydoesitdothat.png)
 
 Ultimately, It was pretty funny for the few hours I had it running. 
-!["Are you having a stroke"](../assets/img/discord-llm/stroke.png)
+!["Are you having a stroke"](/assets/img/discord-llm/stroke.png)
 
 # Closing thoughts
 
