@@ -23,7 +23,7 @@ The type of EC2 instance I started out with for the server, t2.small, is cheap**
 
 !["Burstable performance"](/assets/img/Minecraft/burstable_perf.png)
 
-"Oh wow, it gets even more powerful! Nope, you can use about 30% of the CPU, and when it's below that it accumulates "credits". These "credits" get consumed when you use more than 30%, and when you run out of credits your CPU gets capped at 30%! And for the low low price of 5c per hours you can turn on "unlimited mode" that will still try to not use credits, and run like shit!
+"Oh wow, it gets even more powerful! Nope, you can use about 30% of the CPU, and when it's below that it accumulates "credits". These "credits" get consumed when you use more than 30%, and when you run out of credits your CPU gets capped at 30%! And for the low low price of 5c per hours you can turn on "unlimited mode" that will still try to not use credits, and run horribly!
 
 So, new approach: run a different server type. minecraft is a rather CPU-focused game for servers, so the c6 type for servers works decently well for this, as you've all mostly been feeling.
 
