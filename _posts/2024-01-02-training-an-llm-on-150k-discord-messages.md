@@ -188,7 +188,7 @@ trainer.save_model("model.bin")
 
 And when that is done, we should have a model for training. stay tuned for a few weeks, when i have the results.
 
-# The results
+## The results
 
 About two weeks of training later, we have our fully trained model!
 
@@ -289,7 +289,7 @@ Ultimately, It was pretty funny for the few hours I had it running.
 
 !["Are you having a stroke"](/assets/img/discord-llm/stroke.png)
 
-# Closing thoughts
+## Closing thoughts
 
 In retrospect, taking two weeks to fine-tune a model that was already a bit too small was probably a bit of a waste of my time.  If i had to do it again i'd probably
 - Take a bigger model as a starting point: If I'd used LLaMa or Mixtral, I'd have gotten better results. The issue with using those initially was not having a PC that can run or train either, but if a cloud provider comes along and offers a good price for some credits I might try again.
